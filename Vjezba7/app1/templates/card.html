@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block card_block %}
+
+<h3>Kupljene karte:</h3>
+    {% for card in user_card %}
+        {% for movie in movies %}
+            {% if card.projection.id == movie.id %}
+                Naziv filma:{{movie.film_name}}<br>
+                Vrijeme filma: {{movie.film_time}}<br>
+                Broj sjedala: {{card.num_seats}}<br>
+            {% endif %}
+        {% endfor %}
+    
+    <br>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% block projection_block %}
+{% load mathfilters %}
+<h3>Lista filmova</h3>
+<h5>Naziv filma
+Vrijeme
+Slobodna mjesta</h5>
+
+
+{% for movie in data %}
+    {{movie.film_name}}
+    {{movie.film_time}}
+    {{movie.capacity|sub:movie.cards.count}}<br>
+    {% if user.is_authenticated %}
+        <form method="post" action="http://localhost:8000/buy/{{user.id}}/{{movie.id}}">
+            {% csrf_token %}
+            <input type="submit" value="Kupi kartu"><br><br>
+        </form>
+    {% endif %}
+{% endfor %}
+{% endblock %}

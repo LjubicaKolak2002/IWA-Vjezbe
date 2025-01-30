@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% block user_by_card_block%}
+<h4>Lista korisnika za film
+{{film_name}}</h4>
+
+{% for user in users %}
+    {{user}}<br>
+{% endfor %}
+
+{% endblock %}
+    

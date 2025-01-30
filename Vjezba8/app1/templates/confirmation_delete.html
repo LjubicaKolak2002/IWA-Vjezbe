@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block confirm_delete_block %}
+<form action="{% url 'delete_projection' data %}" method="POST">
+    <p>Jeste li sigurni da zelite izbrisati projekciju?</p>
+    {% csrf_token %}
+    <input type="submit" name="da" value="Da">
+    <input type="submit" name="ne" value="Ne">
+</form>
+{% endblock %}

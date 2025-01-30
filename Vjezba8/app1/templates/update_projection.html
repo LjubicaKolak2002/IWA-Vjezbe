@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block update_projection_block %}
+<h4>Azirirajte projekciju!</h4>
+<form method="POST">
+    {{form}}
+    {% csrf_token %}
+    <input type="submit" value="Update">
+</form>
+{% endblock %}

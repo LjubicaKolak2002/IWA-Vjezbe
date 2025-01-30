@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% block projection_block %}
+
+<h3>Lista filmova</h3>
+<h5>Naziv filma
+Vrijeme
+Slobodna mjesta</h5>
+
+{% for movie in data %}
+    {{movie.film_name}}
+    {{movie.film_time}}
+    {% for id, seat in free_seats.items %}
+        {% if id == movie.id %}
+            {{seat}}
+            <a href="http://localhost:8000/buy/2/{{movie.id}}">Kupi kartu</a><br/><br>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+{% endblock %} 

@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+{% block sold_projection_block %}
+<h3>Kupljene karte</h3>
+<h5>Naziv filma
+Broj prodanih mjesta</h5>
+
+{% for movie in data %}
+    {{movie.film_name}}
+    {{movie.cards.count}}
+    
+    <br>
+{% endfor %}
+{% endblock %}
